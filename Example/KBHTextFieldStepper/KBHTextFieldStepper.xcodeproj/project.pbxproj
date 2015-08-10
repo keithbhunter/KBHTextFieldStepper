@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E70A403D1B78391100324EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A403C1B78391100324EFD /* AppDelegate.swift */; };
+		E70A403F1B78391100324EFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A403E1B78391100324EFD /* ViewController.swift */; };
+		E70A40421B78391100324EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70A40401B78391100324EFD /* Main.storyboard */; };
+		E70A40441B78391100324EFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E70A40431B78391100324EFD /* Assets.xcassets */; };
+		E70A40471B78391100324EFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70A40451B78391100324EFD /* LaunchScreen.storyboard */; };
+		E70A40521B78391100324EFD /* KBHTextFieldStepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A40511B78391100324EFD /* KBHTextFieldStepperTests.swift */; };
+		E70A405D1B78391100324EFD /* KBHTextFieldStepperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A405C1B78391100324EFD /* KBHTextFieldStepperUITests.swift */; };
+		E70A406C1B78398000324EFD /* KBHTextFieldStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70A406B1B78398000324EFD /* KBHTextFieldStepper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E70A404E1B78391100324EFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E70A40311B78391100324EFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E70A40381B78391100324EFD;
+			remoteInfo = KBHTextFieldStepper;
+		};
+		E70A40591B78391100324EFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E70A40311B78391100324EFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E70A40381B78391100324EFD;
+			remoteInfo = KBHTextFieldStepper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E70A40391B78391100324EFD /* KBHTextFieldStepper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KBHTextFieldStepper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E70A403C1B78391100324EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E70A403E1B78391100324EFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E70A40411B78391100324EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E70A40431B78391100324EFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E70A40461B78391100324EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E70A40481B78391100324EFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E70A404D1B78391100324EFD /* KBHTextFieldStepperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KBHTextFieldStepperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E70A40511B78391100324EFD /* KBHTextFieldStepperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KBHTextFieldStepperTests.swift; sourceTree = "<group>"; };
+		E70A40531B78391100324EFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E70A40581B78391100324EFD /* KBHTextFieldStepperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KBHTextFieldStepperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E70A405C1B78391100324EFD /* KBHTextFieldStepperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KBHTextFieldStepperUITests.swift; sourceTree = "<group>"; };
+		E70A405E1B78391100324EFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E70A406B1B78398000324EFD /* KBHTextFieldStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBHTextFieldStepper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E70A40361B78391100324EFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E70A404A1B78391100324EFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E70A40551B78391100324EFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E70A40301B78391100324EFD = {
+			isa = PBXGroup;
+			children = (
+				E70A403B1B78391100324EFD /* KBHTextFieldStepper */,
+				E70A40501B78391100324EFD /* KBHTextFieldStepperTests */,
+				E70A405B1B78391100324EFD /* KBHTextFieldStepperUITests */,
+				E70A403A1B78391100324EFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E70A403A1B78391100324EFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E70A40391B78391100324EFD /* KBHTextFieldStepper.app */,
+				E70A404D1B78391100324EFD /* KBHTextFieldStepperTests.xctest */,
+				E70A40581B78391100324EFD /* KBHTextFieldStepperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E70A403B1B78391100324EFD /* KBHTextFieldStepper */ = {
+			isa = PBXGroup;
+			children = (
+				E70A406B1B78398000324EFD /* KBHTextFieldStepper.swift */,
+				E70A403C1B78391100324EFD /* AppDelegate.swift */,
+				E70A403E1B78391100324EFD /* ViewController.swift */,
+				E70A40401B78391100324EFD /* Main.storyboard */,
+				E70A40431B78391100324EFD /* Assets.xcassets */,
+				E70A40451B78391100324EFD /* LaunchScreen.storyboard */,
+				E70A40481B78391100324EFD /* Info.plist */,
+			);
+			path = KBHTextFieldStepper;
+			sourceTree = "<group>";
+		};
+		E70A40501B78391100324EFD /* KBHTextFieldStepperTests */ = {
+			isa = PBXGroup;
+			children = (
+				E70A40511B78391100324EFD /* KBHTextFieldStepperTests.swift */,
+				E70A40531B78391100324EFD /* Info.plist */,
+			);
+			path = KBHTextFieldStepperTests;
+			sourceTree = "<group>";
+		};
+		E70A405B1B78391100324EFD /* KBHTextFieldStepperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E70A405C1B78391100324EFD /* KBHTextFieldStepperUITests.swift */,
+				E70A405E1B78391100324EFD /* Info.plist */,
+			);
+			path = KBHTextFieldStepperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E70A40381B78391100324EFD /* KBHTextFieldStepper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E70A40611B78391100324EFD /* Build configuration list for PBXNativeTarget "KBHTextFieldStepper" */;
+			buildPhases = (
+				E70A40351B78391100324EFD /* Sources */,
+				E70A40361B78391100324EFD /* Frameworks */,
+				E70A40371B78391100324EFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KBHTextFieldStepper;
+			productName = KBHTextFieldStepper;
+			productReference = E70A40391B78391100324EFD /* KBHTextFieldStepper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E70A404C1B78391100324EFD /* KBHTextFieldStepperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E70A40641B78391100324EFD /* Build configuration list for PBXNativeTarget "KBHTextFieldStepperTests" */;
+			buildPhases = (
+				E70A40491B78391100324EFD /* Sources */,
+				E70A404A1B78391100324EFD /* Frameworks */,
+				E70A404B1B78391100324EFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E70A404F1B78391100324EFD /* PBXTargetDependency */,
+			);
+			name = KBHTextFieldStepperTests;
+			productName = KBHTextFieldStepperTests;
+			productReference = E70A404D1B78391100324EFD /* KBHTextFieldStepperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E70A40571B78391100324EFD /* KBHTextFieldStepperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E70A40671B78391100324EFD /* Build configuration list for PBXNativeTarget "KBHTextFieldStepperUITests" */;
+			buildPhases = (
+				E70A40541B78391100324EFD /* Sources */,
+				E70A40551B78391100324EFD /* Frameworks */,
+				E70A40561B78391100324EFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E70A405A1B78391100324EFD /* PBXTargetDependency */,
+			);
+			name = KBHTextFieldStepperUITests;
+			productName = KBHTextFieldStepperUITests;
+			productReference = E70A40581B78391100324EFD /* KBHTextFieldStepperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E70A40311B78391100324EFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Keith Hunter";
+				TargetAttributes = {
+					E70A40381B78391100324EFD = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					E70A404C1B78391100324EFD = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = E70A40381B78391100324EFD;
+					};
+					E70A40571B78391100324EFD = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = E70A40381B78391100324EFD;
+					};
+				};
+			};
+			buildConfigurationList = E70A40341B78391100324EFD /* Build configuration list for PBXProject "KBHTextFieldStepper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E70A40301B78391100324EFD;
+			productRefGroup = E70A403A1B78391100324EFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E70A40381B78391100324EFD /* KBHTextFieldStepper */,
+				E70A404C1B78391100324EFD /* KBHTextFieldStepperTests */,
+				E70A40571B78391100324EFD /* KBHTextFieldStepperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E70A40371B78391100324EFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70A40471B78391100324EFD /* LaunchScreen.storyboard in Resources */,
+				E70A40441B78391100324EFD /* Assets.xcassets in Resources */,
+				E70A40421B78391100324EFD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E70A404B1B78391100324EFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E70A40561B78391100324EFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E70A40351B78391100324EFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70A403F1B78391100324EFD /* ViewController.swift in Sources */,
+				E70A406C1B78398000324EFD /* KBHTextFieldStepper.swift in Sources */,
+				E70A403D1B78391100324EFD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E70A40491B78391100324EFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70A40521B78391100324EFD /* KBHTextFieldStepperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E70A40541B78391100324EFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70A405D1B78391100324EFD /* KBHTextFieldStepperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E70A404F1B78391100324EFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E70A40381B78391100324EFD /* KBHTextFieldStepper */;
+			targetProxy = E70A404E1B78391100324EFD /* PBXContainerItemProxy */;
+		};
+		E70A405A1B78391100324EFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E70A40381B78391100324EFD /* KBHTextFieldStepper */;
+			targetProxy = E70A40591B78391100324EFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E70A40401B78391100324EFD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E70A40411B78391100324EFD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E70A40451B78391100324EFD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E70A40461B78391100324EFD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E70A405F1B78391100324EFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E70A40601B78391100324EFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E70A40621B78391100324EFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KBHTextFieldStepper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.keithbhunter.KBHTextFieldStepper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E70A40631B78391100324EFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KBHTextFieldStepper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.keithbhunter.KBHTextFieldStepper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E70A40651B78391100324EFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KBHTextFieldStepperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.keithbhunter.KBHTextFieldStepperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KBHTextFieldStepper.app/KBHTextFieldStepper";
+			};
+			name = Debug;
+		};
+		E70A40661B78391100324EFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KBHTextFieldStepperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.keithbhunter.KBHTextFieldStepperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KBHTextFieldStepper.app/KBHTextFieldStepper";
+			};
+			name = Release;
+		};
+		E70A40681B78391100324EFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KBHTextFieldStepperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.keithbhunter.KBHTextFieldStepperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KBHTextFieldStepper;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E70A40691B78391100324EFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KBHTextFieldStepperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.keithbhunter.KBHTextFieldStepperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KBHTextFieldStepper;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E70A40341B78391100324EFD /* Build configuration list for PBXProject "KBHTextFieldStepper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E70A405F1B78391100324EFD /* Debug */,
+				E70A40601B78391100324EFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E70A40611B78391100324EFD /* Build configuration list for PBXNativeTarget "KBHTextFieldStepper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E70A40621B78391100324EFD /* Debug */,
+				E70A40631B78391100324EFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E70A40641B78391100324EFD /* Build configuration list for PBXNativeTarget "KBHTextFieldStepperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E70A40651B78391100324EFD /* Debug */,
+				E70A40661B78391100324EFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E70A40671B78391100324EFD /* Build configuration list for PBXNativeTarget "KBHTextFieldStepperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E70A40681B78391100324EFD /* Debug */,
+				E70A40691B78391100324EFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E70A40311B78391100324EFD /* Project object */;
+}
