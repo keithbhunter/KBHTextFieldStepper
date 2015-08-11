@@ -92,14 +92,14 @@ private class KBHTextFieldStepperButton: UIControl {
     }
     
     private func drawMinus() {
-        let minus = UIBezierPath(rect: CGRectMake(15.6667, 14.5, 15.6667, 1))
+        let minus = UIBezierPath(rect: CGRectMake(15.6667, 14.5, 15.6667, 1.5))
         minus.fill()
     }
     
     private func drawPlus() {
-        let horiz = UIBezierPath(rect: CGRectMake(15.6667, 14.5, 15.6667, 1))
+        let horiz = UIBezierPath(rect: CGRectMake(15.6667, 14.5, 15.6667, 1.5))
         horiz.fill()
-        let vert = UIBezierPath(rect: CGRectMake(23.5, 6.6665, 1, 15.6667))
+        let vert = UIBezierPath(rect: CGRectMake(23.5, 6.6665, 1.5, 15.6667))
         vert.fill()
     }
     
