@@ -36,6 +36,9 @@
                             <constraint firstItem="8vd-Ca-nXT" firstAttribute="top" secondItem="1pG-4I-9q9" secondAttribute="bottom" constant="8" id="sdr-TH-eov"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stepper" destination="8vd-Ca-nXT" id="kGs-yp-dAR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
