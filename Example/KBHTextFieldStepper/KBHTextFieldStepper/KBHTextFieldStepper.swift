@@ -8,39 +8,41 @@
 
 import UIKit
 
-//  + and - button are 47 x 29
 
-class KBHTextFieldStepper: UIControl {
+public class KBHTextFieldStepper: UIControl {
     
     // MARK: - Initializers
     
-    init() {
+    public init() {
         let theFrame = CGRectMake(0, 0, 94, 29)
         super.init(frame: theFrame)
         self.setup()
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         let theFrame = CGRectMake(frame.origin.x, frame.origin.y, 94, 29)
         super.init(frame: theFrame)
         self.setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setup()
     }
     
     private func setup() {
-        self.addSubview(KBHTextFieldStepperButton(origin: CGPointMake(0, 0), type: .Minus))
-        self.addSubview(KBHTextFieldStepperButton(origin: CGPointMake(47, 0), type: .Plus))
-        self.backgroundColor = .whiteColor()
+        let minus = KBHTextFieldStepperButton(origin: CGPointMake(0, 0), type: .Minus)
+        let plus = KBHTextFieldStepperButton(origin: CGPointMake(47, 0), type: .Plus)
+        self.addSubview(minus)
+        self.addSubview(plus)
+        minus.addTarget(self, action: "decrement", forControlEvents: .TouchUpInside)
+        plus.addTarget(self, action: "increment", forControlEvents: .TouchUpInside)
     }
 
     
     // MARK: - Drawing
     
-    override func drawRect(rect: CGRect) {
+    public override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
         self.tintColor.setStroke()
@@ -52,6 +54,17 @@ class KBHTextFieldStepper: UIControl {
         
         let divider = UIBezierPath(rect: CGRectMake(rect.size.width / 2.0, 0, 1.5, rect.size.height))
         divider.fill()
+    }
+    
+    
+    // MARK: - Actions
+    
+    internal func decrement() {
+        self.sendActionsForControlEvents(.ValueChanged)
+    }
+    
+    internal func increment() {
+        self.sendActionsForControlEvents(.ValueChanged)
     }
 
 }
@@ -101,6 +114,10 @@ private class KBHTextFieldStepperButton: UIControl {
         horiz.fill()
         let vert = UIBezierPath(rect: CGRectMake(23.5, 6.6665, 1.5, 15.6667))
         vert.fill()
+    }
+    
+    private override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.sendActionsForControlEvents(.TouchUpInside)
     }
     
 }
