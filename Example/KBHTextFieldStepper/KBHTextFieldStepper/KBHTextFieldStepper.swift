@@ -11,16 +11,25 @@ import UIKit
 
 public class KBHTextFieldStepper: UIControl {
     
+    lazy var textField: UITextField = {
+        let textField = UITextField(frame: CGRectMake(48.5, 0, 20, 29))
+        textField.textAlignment = .Center
+        textField.text = "0"
+//        textField.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
+        return textField
+    }()
+    
+    
     // MARK: - Initializers
     
     public init() {
-        let theFrame = CGRectMake(0, 0, 94, 29)
+        let theFrame = CGRectMake(0, 0, 114, 29)
         super.init(frame: theFrame)
         self.setup()
     }
     
     public override init(frame: CGRect) {
-        let theFrame = CGRectMake(frame.origin.x, frame.origin.y, 94, 29)
+        let theFrame = CGRectMake(frame.origin.x, frame.origin.y, 114, 29)
         super.init(frame: theFrame)
         self.setup()
     }
@@ -30,11 +39,20 @@ public class KBHTextFieldStepper: UIControl {
         self.setup()
     }
     
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 114, 29)
+    }
+    
     private func setup() {
+        // This class has a set frame where only the textField can change size: layout is the - | textField | +
         let minus = KBHTextFieldStepperButton(origin: CGPointMake(0, 0), type: .Minus)
-        let plus = KBHTextFieldStepperButton(origin: CGPointMake(47, 0), type: .Plus)
+        let plus = KBHTextFieldStepperButton(origin: CGPointMake(67, 0), type: .Plus)
+        
         self.addSubview(minus)
+        self.addSubview(self.textField)
         self.addSubview(plus)
+        
         minus.addTarget(self, action: "decrement", forControlEvents: .TouchUpInside)
         plus.addTarget(self, action: "increment", forControlEvents: .TouchUpInside)
     }
@@ -52,8 +70,11 @@ public class KBHTextFieldStepper: UIControl {
         outline.lineWidth = 1.5
         outline.stroke()
         
-        let divider = UIBezierPath(rect: CGRectMake(rect.size.width / 2.0, 0, 1.5, rect.size.height))
-        divider.fill()
+        let leftDivider = UIBezierPath(rect: CGRectMake(self.textField.frame.origin.x - 1.5, 0, 1.5, rect.size.height))
+        leftDivider.fill()
+        
+        let rightDivider = UIBezierPath(rect: CGRectMake(self.textField.frame.origin.x + self.textField.frame.size.width, 0, 1.5, rect.size.height))
+        rightDivider.fill()
     }
     
     

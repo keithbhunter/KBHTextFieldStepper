@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textFieldStepper: KBHTextFieldStepper!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var textField: UITextField!
     
     
     override func viewDidLoad() {
