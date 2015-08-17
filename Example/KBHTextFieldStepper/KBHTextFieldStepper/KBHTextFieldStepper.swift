@@ -15,7 +15,7 @@ public class KBHTextFieldStepper: UIControl {
         let textField = UITextField(frame: CGRectMake(48.5, 0, 20, 29))
         textField.textAlignment = .Center
         textField.text = "0"
-//        textField.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
+        textField.keyboardType = .NumberPad
         return textField
     }()
     
@@ -81,10 +81,12 @@ public class KBHTextFieldStepper: UIControl {
     // MARK: - Actions
     
     internal func decrement() {
+        self.textField.text = String(Int(self.textField.text!)! - 1)
         self.sendActionsForControlEvents(.ValueChanged)
     }
     
     internal func increment() {
+        self.textField.text = String(Int(self.textField.text!)! + 1)
         self.sendActionsForControlEvents(.ValueChanged)
     }
 
