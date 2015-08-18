@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.addSubview(KBHTextFieldStepper(origin: CGPointMake(8, 8)))
     }
     
     override func viewDidAppear(animated: Bool) {

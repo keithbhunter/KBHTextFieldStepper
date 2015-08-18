@@ -49,8 +49,8 @@ public class KBHTextFieldStepper: UIControl {
     
     // MARK: - Initializers
     
-    public init() {
-        let theFrame = CGRectMake(0, 0, 114, 29)
+    public init(origin: CGPoint = CGPointMake(0, 0)) {
+        let theFrame = CGRectMake(origin.x, origin.y, 114, 29)
         super.init(frame: theFrame)
         self.setup()
     }
@@ -72,6 +72,8 @@ public class KBHTextFieldStepper: UIControl {
     }
     
     private func setup() {
+        self.backgroundColor = .whiteColor()
+        
         // This class has a set frame where only the textField can change size: layout is the - | textField | +
         let minus = KBHTextFieldStepperButton(origin: CGPointMake(0, 0), type: .Minus)
         let plus = KBHTextFieldStepperButton(origin: CGPointMake(67, 0), type: .Plus)
