@@ -11,12 +11,39 @@ import UIKit
 
 public class KBHTextFieldStepper: UIControl {
     
-    lazy var textField: UITextField = {
+    private var _value: Double = 0
+    public var value: Double {
+        get {
+            return _value
+        }
+        set {
+            if newValue > self.maximumValue {
+                _value = self.maximumValue
+            } else if newValue < self.minimumValue {
+                _value = self.minimumValue
+            } else {
+                _value = newValue
+                self.textField.text = self.numberFormatter.stringFromNumber(NSNumber(double: self.value))
+            }
+        }
+    }
+    public var minimumValue: Double = 0
+    public var maximumValue: Double = 100
+    public var stepValue: Double = 1
+    
+    // TODO: Add delegate forwarding for text field
+    /// This is private so that no one can mess with the text field's configuration. Use value and delegate to control text field customization.
+    private let textField: UITextField = {
         let textField = UITextField(frame: CGRectMake(48.5, 0, 20, 29))
         textField.textAlignment = .Center
         textField.text = "0"
         textField.keyboardType = .NumberPad
         return textField
+    }()
+    private let numberFormatter: NSNumberFormatter = {
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        return numberFormatter
     }()
     
     
@@ -81,13 +108,15 @@ public class KBHTextFieldStepper: UIControl {
     // MARK: - Actions
     
     internal func decrement() {
-        self.textField.text = String(Int(self.textField.text!)! - 1)
+        self.value -= self.stepValue
         self.sendActionsForControlEvents(.ValueChanged)
+        print("\(self.value)")
     }
     
     internal func increment() {
-        self.textField.text = String(Int(self.textField.text!)! + 1)
+        self.value += self.stepValue
         self.sendActionsForControlEvents(.ValueChanged)
+        print("\(self.value)")
     }
 
 }
