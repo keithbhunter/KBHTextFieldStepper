@@ -33,13 +33,7 @@ public class KBHTextFieldStepper: UIControl {
     
     // TODO: Add delegate forwarding for text field
     /// This is private so that no one can mess with the text field's configuration. Use value and delegate to control text field customization.
-    private let textField: UITextField = {
-        let textField = UITextField(frame: CGRectMake(48.5, 0, 20, 29))
-        textField.textAlignment = .Center
-        textField.text = "0"
-        textField.keyboardType = .NumberPad
-        return textField
-    }()
+    private var textField: UITextField!
     private let numberFormatter: NSNumberFormatter = {
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = .DecimalStyle
@@ -49,41 +43,47 @@ public class KBHTextFieldStepper: UIControl {
     
     // MARK: - Initializers
     
-    public init(origin: CGPoint = CGPointMake(0, 0)) {
-        let theFrame = CGRectMake(origin.x, origin.y, 114, 29)
-        super.init(frame: theFrame)
-        self.setup()
-    }
-    
     public override init(frame: CGRect) {
-        let theFrame = CGRectMake(frame.origin.x, frame.origin.y, 114, 29)
-        super.init(frame: theFrame)
+        super.init(frame: frame)
         self.setup()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.setup()
     }
     
     public override func awakeFromNib() {
         super.awakeFromNib()
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 114, 29)
+        self.setup()
     }
     
     private func setup() {
         self.backgroundColor = .whiteColor()
         
-        // This class has a set frame where only the textField can change size: layout is the - | textField | +
+        // Buttons
         let minus = KBHTextFieldStepperButton(origin: CGPointMake(0, 0), type: .Minus)
-        let plus = KBHTextFieldStepperButton(origin: CGPointMake(67, 0), type: .Plus)
-        
-        self.addSubview(minus)
-        self.addSubview(self.textField)
-        self.addSubview(plus)
-        
+        let plus = KBHTextFieldStepperButton(origin: CGPointMake(self.frame.size.width - minus.frame.size.width, 0), type: .Plus)
         minus.addTarget(self, action: "decrement", forControlEvents: .TouchUpInside)
         plus.addTarget(self, action: "increment", forControlEvents: .TouchUpInside)
+        
+        // Dividers
+        let leftDivider = UIView(frame: CGRectMake(minus.frame.size.width, 0, 1.5, 29))
+        let rightDivider = UIView(frame: CGRectMake(self.frame.size.width - plus.frame.size.width, 0, 1.5, 29))
+        leftDivider.backgroundColor = self.tintColor
+        rightDivider.backgroundColor = self.tintColor
+        
+        // Text Field
+        self.textField = UITextField(frame: CGRectMake(leftDivider.frame.origin.x + leftDivider.frame.size.width, 0, rightDivider.frame.origin.x - (leftDivider.frame.origin.x + leftDivider.frame.size.width), 29))
+        self.textField.textAlignment = .Center
+        self.textField.text = "0"
+        self.textField.keyboardType = .NumberPad
+        
+        // Layout:  - | textField | +
+        self.addSubview(minus)
+        self.addSubview(leftDivider)
+        self.addSubview(self.textField)
+        self.addSubview(rightDivider)
+        self.addSubview(plus)
     }
 
     
@@ -95,15 +95,10 @@ public class KBHTextFieldStepper: UIControl {
         self.tintColor.setStroke()
         self.tintColor.setFill()
         
+        // Stroke the outside to give the whole view a rounded rect outline
         let outline = UIBezierPath(roundedRect: rect, cornerRadius: 5)
         outline.lineWidth = 1.5
         outline.stroke()
-        
-        let leftDivider = UIBezierPath(rect: CGRectMake(self.textField.frame.origin.x - 1.5, 0, 1.5, rect.size.height))
-        leftDivider.fill()
-        
-        let rightDivider = UIBezierPath(rect: CGRectMake(self.textField.frame.origin.x + self.textField.frame.size.width, 0, 1.5, rect.size.height))
-        rightDivider.fill()
     }
     
     
@@ -123,6 +118,8 @@ public class KBHTextFieldStepper: UIControl {
 
 }
 
+
+// MARK: - Private Classes
 
 private enum KBHTextFieldStepperButtonType {
     case Plus, Minus
