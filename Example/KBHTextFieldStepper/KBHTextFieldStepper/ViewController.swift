@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var textFieldStepper: KBHTextFieldStepper!
+    var textFieldStepper: KBHTextFieldStepper!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var textField: UITextField!
     
@@ -18,12 +18,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(KBHTextFieldStepper(frame: CGRectMake(16, 28, 150, 29)))
+        self.textFieldStepper = KBHTextFieldStepper(frame: CGRectMake(16, 28, 150, 29))
+        self.view.addSubview(textFieldStepper)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
 }
 
