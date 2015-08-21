@@ -11,7 +11,8 @@ import UIKit
 
 public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     
-    // Public
+    // MARK: Public Properties
+    
     public var value: Double {
         get { return _value }
         set { self.setValue(newValue) }
@@ -35,8 +36,11 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
         didSet { self.textField.delegate = self.textFieldDelegate }
     }
     public var wraps: Bool = false
+    public var autorepeat: Bool = true
     
-    // Private
+    
+    // MARK: Private Properties
+    
     /// This is private so that no one can mess with the text field's configuration. Use value and textFieldDelegate to control text field customization.
     private var textField: UITextField!
     private let numberFormatter: NSNumberFormatter = {
@@ -46,8 +50,11 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     }()
     private var _value: Double = 0
     
+    /// A timer to implement the functionality of holding down one of the KBHTextFieldStepperButtons. Once started, the run loop will hold a strong reference to the timer, so this property can be weak. The timer is allocated once a button is pressed and deallocated once the button is unpressed.
+    private weak var timer: NSTimer?
     
-    // MARK: - Initializers
+    
+    // MARK: Initializers
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,8 +76,10 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
         // Buttons
         let minus = KBHTextFieldStepperButton(origin: CGPointMake(0, 0), type: .Minus)
         let plus = KBHTextFieldStepperButton(origin: CGPointMake(self.frame.size.width - minus.frame.size.width, 0), type: .Plus)
-        minus.addTarget(self, action: "decrement", forControlEvents: .TouchUpInside)
-        plus.addTarget(self, action: "increment", forControlEvents: .TouchUpInside)
+        minus.addTarget(self, action: "minusTouchDown", forControlEvents: .TouchDown)
+        minus.addTarget(self, action: "minusTouchUp", forControlEvents: .TouchUpInside)
+        plus.addTarget(self, action: "plusTouchDown", forControlEvents: .TouchDown)
+        plus.addTarget(self, action: "plusTouchUp", forControlEvents: .TouchUpInside)
         
         // Dividers
         let leftDivider = UIView(frame: CGRectMake(minus.frame.size.width, 0, 1.5, 29))
@@ -96,7 +105,7 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     }
     
     
-    // MARK: - Getters/Setters
+    // MARK: Getters/Setters
     
     private func setValue(value: Double) {
         if value > self.maximumValue {
@@ -111,7 +120,7 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     }
 
     
-    // MARK: - Drawing
+    // MARK: Drawing
     
     public override func drawRect(rect: CGRect) {
         super.drawRect(rect)
@@ -126,7 +135,33 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     }
     
     
-    // MARK: - Actions
+    // MARK: Actions
+    
+    internal func minusTouchDown() {
+        self.decrement()
+        
+        if self.autorepeat {
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "decrement", userInfo: nil, repeats: true)
+        }
+    }
+    
+    internal func minusTouchUp() {
+        guard let timer = self.timer else { return }
+        timer.invalidate()
+    }
+    
+    internal func plusTouchDown() {
+        self.increment()
+        
+        if self.autorepeat {
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "increment", userInfo: nil, repeats: true)
+        }
+    }
+    
+    internal func plusTouchUp() {
+        guard let timer = self.timer else { return }
+        timer.invalidate()
+    }
     
     internal func decrement() {
         self.value -= self.stepValue
@@ -139,7 +174,7 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     }
     
     
-    // MARK: - UITextFieldDelegate
+    // MARK: UITextFieldDelegate
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
@@ -184,23 +219,23 @@ private enum KBHTextFieldStepperButtonType {
 
 private class KBHTextFieldStepperButton: UIControl {
     
-    var type: KBHTextFieldStepperButtonType
+    private var type: KBHTextFieldStepperButtonType
     
     
-    // MARK: - Initializers
+    // MARK: Initializers
     
-    required init(origin: CGPoint = CGPointMake(0, 0), type: KBHTextFieldStepperButtonType) {
+    private required init(origin: CGPoint = CGPointMake(0, 0), type: KBHTextFieldStepperButtonType) {
         self.type = type
         super.init(frame: CGRectMake(origin.x, origin.y, 47, 29))
         self.backgroundColor = .clearColor()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    private required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    // MARK: - Drawing
+    // MARK: Drawing
     
     private override func drawRect(rect: CGRect) {
         self.tintColor.setFill()
@@ -222,6 +257,13 @@ private class KBHTextFieldStepperButton: UIControl {
         horiz.fill()
         let vert = UIBezierPath(rect: CGRectMake(23.5, 6.6665, 1.5, 15.6667))
         vert.fill()
+    }
+    
+    
+    // MARK: Actions
+    
+    private override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.sendActionsForControlEvents(.TouchDown)
     }
     
     private override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
