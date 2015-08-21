@@ -15,28 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="8vd-Ca-nXT">
-                                <rect key="frame" x="16" y="85" width="94" height="29"/>
-                            </stepper>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLx-q5-UCN">
-                                <rect key="frame" x="16" y="122" width="13" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="WLx-q5-UCN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="54v-Xl-E5u"/>
-                            <constraint firstItem="8vd-Ca-nXT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="CMy-AL-DiJ"/>
-                            <constraint firstItem="WLx-q5-UCN" firstAttribute="top" secondItem="8vd-Ca-nXT" secondAttribute="bottom" constant="8" id="YTz-Ho-AEu"/>
-                            <constraint firstItem="8vd-Ca-nXT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="65" id="eft-Z6-mdK"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="stepper" destination="8vd-Ca-nXT" id="kGs-yp-dAR"/>
-                        <outlet property="textField" destination="WLx-q5-UCN" id="SoO-Kw-4ym"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
