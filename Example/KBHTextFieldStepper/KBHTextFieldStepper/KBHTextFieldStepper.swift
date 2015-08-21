@@ -28,8 +28,20 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
             self.textField.text = self.numberFormatter.stringFromNumber(NSNumber(double: _value))
         }
     }
-    public var minimumValue: Double = 0
-    public var maximumValue: Double = 100
+    public var minimumValue: Double = 0 {
+        didSet {
+            if self.value < self.minimumValue {
+                self.value = self.minimumValue
+            }
+        }
+    }
+    public var maximumValue: Double = 100 {
+        didSet {
+            if self.value > self.maximumValue {
+                self.value = self.maximumValue
+            }
+        }
+    }
     public var stepValue: Double = 1
     public var textFieldDelegate: UITextFieldDelegate? {
         didSet {
@@ -92,6 +104,8 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
         self.addSubview(self.textField)
         self.addSubview(rightDivider)
         self.addSubview(plus)
+        
+        self.value = self.minimumValue
     }
 
     
@@ -115,13 +129,11 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     internal func decrement() {
         self.value -= self.stepValue
         self.sendActionsForControlEvents(.ValueChanged)
-        print("\(self.value)")
     }
     
     internal func increment() {
         self.value += self.stepValue
         self.sendActionsForControlEvents(.ValueChanged)
-        print("\(self.value)")
     }
     
     
