@@ -7,10 +7,9 @@ A `UIStepper` with a `UITextField` in the middle. Default implementation restric
 
 ## Usage
 
+Create a UIView in the storyboard and set the class to KBHTextFieldStepper or create it in code. The width is fixed, so make sure there is enough room to display the text you may have.
+
 ```
-// Create a UIView in the storyboard and set the class to KBHTextFieldStepper,
-// or create it in code. The width is fixed, so make sure there is
-// enough room to display the text you may have.
 self.textFieldStepper = KBHTextFieldStepper(frame: CGRectMake(16, 28, 150, 29))
 self.view.addSubview(textFieldStepper)
 ``` 

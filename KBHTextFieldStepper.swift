@@ -37,6 +37,7 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     }
     public var wraps: Bool = false
     public var autorepeat: Bool = true
+    public var continuous: Bool = true
     
     
     // MARK: Private Properties
@@ -137,40 +138,45 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     
     // MARK: Actions
     
-    internal func minusTouchDown() {
-        self.decrement()
+    internal func minusTouchDown() { self.buttonTouchDown("decrement") }
+    internal func plusTouchDown() { self.buttonTouchDown("increment") }
+    private func buttonTouchDown(selector: Selector) {
+        self.performSelector(selector)
         
         if self.autorepeat {
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "decrement", userInfo: nil, repeats: true)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: selector, userInfo: nil, repeats: true)
         }
     }
     
-    internal func minusTouchUp() {
+    internal func minusTouchUp() { self.buttonTouchUp() }
+    internal func plusTouchUp() { self.buttonTouchUp() }
+    private func buttonTouchUp() {
         guard let timer = self.timer else { return }
         timer.invalidate()
-    }
-    
-    internal func plusTouchDown() {
-        self.increment()
         
-        if self.autorepeat {
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "increment", userInfo: nil, repeats: true)
+        // autorepeat is on since we used a timer. If not continuous, send the only value changed event
+        if !self.continuous {
+            self.sendActionsForControlEvents(.ValueChanged)
         }
-    }
-    
-    internal func plusTouchUp() {
-        guard let timer = self.timer else { return }
-        timer.invalidate()
     }
     
     internal func decrement() {
         self.value -= self.stepValue
-        self.sendActionsForControlEvents(.ValueChanged)
+        self.sendValueChangedEvent()
     }
     
     internal func increment() {
         self.value += self.stepValue
-        self.sendActionsForControlEvents(.ValueChanged)
+        self.sendValueChangedEvent()
+    }
+    
+    private func sendValueChangedEvent() {
+        if self.autorepeat && self.continuous {
+            self.sendActionsForControlEvents(.ValueChanged)
+        } else if !self.autorepeat {
+            // If not using autorepeat, this is only called once. Send value changed updates
+            self.sendActionsForControlEvents(.ValueChanged)
+        }
     }
     
     
