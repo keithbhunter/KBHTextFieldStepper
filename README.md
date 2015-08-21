@@ -1,6 +1,6 @@
 # KBHTextFieldStepper
 
-A `UIStepper` with a `UITextField` in the middle. Default implementation restricts the `UITextField`'s text to `Double`s.
+A `UIStepper` with a `UITextField` in the middle. Default implementation restricts the `UITextField`'s text to `Double`.
 
 ![Alt text](https://github.com/keithbhunter/KBHTextFieldStepper/blob/master/Images/TextFieldStepper.png "KBHTextFieldStepper")
 
