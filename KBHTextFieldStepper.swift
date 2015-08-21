@@ -13,20 +13,8 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     
     // Public
     public var value: Double {
-        get {
-            return _value
-        }
-        set {
-            if newValue > self.maximumValue {
-                _value = self.maximumValue
-            } else if newValue < self.minimumValue {
-                _value = self.minimumValue
-            } else {
-                _value = newValue
-            }
-            
-            self.textField.text = self.numberFormatter.stringFromNumber(NSNumber(double: _value))
-        }
+        get { return _value }
+        set { self.setValue(newValue) }
     }
     public var minimumValue: Double = 0 {
         didSet {
@@ -44,10 +32,9 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
     }
     public var stepValue: Double = 1
     public var textFieldDelegate: UITextFieldDelegate? {
-        didSet {
-            self.textField.delegate = self.textFieldDelegate
-        }
+        didSet { self.textField.delegate = self.textFieldDelegate }
     }
+    public var wraps: Bool = false
     
     // Private
     /// This is private so that no one can mess with the text field's configuration. Use value and textFieldDelegate to control text field customization.
@@ -106,6 +93,21 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
         self.addSubview(plus)
         
         self.value = self.minimumValue
+    }
+    
+    
+    // MARK: - Getters/Setters
+    
+    private func setValue(value: Double) {
+        if value > self.maximumValue {
+            _value = self.wraps ? self.minimumValue : self.maximumValue
+        } else if value < self.minimumValue {
+            _value = self.wraps ? self.maximumValue : self.minimumValue
+        } else {
+            _value = value
+        }
+        
+        self.textField.text = self.numberFormatter.stringFromNumber(NSNumber(double: _value))
     }
 
     
