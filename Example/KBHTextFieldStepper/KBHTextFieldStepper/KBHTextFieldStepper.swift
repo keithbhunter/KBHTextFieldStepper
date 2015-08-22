@@ -77,10 +77,10 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
         // Buttons
         let minus = KBHTextFieldStepperButton(origin: CGPointMake(0, 0), type: .Minus)
         let plus = KBHTextFieldStepperButton(origin: CGPointMake(self.frame.size.width - minus.frame.size.width, 0), type: .Plus)
-        minus.addTarget(self, action: "minusTouchDown", forControlEvents: .TouchDown)
-        minus.addTarget(self, action: "minusTouchUp", forControlEvents: .TouchUpInside)
-        plus.addTarget(self, action: "plusTouchDown", forControlEvents: .TouchDown)
-        plus.addTarget(self, action: "plusTouchUp", forControlEvents: .TouchUpInside)
+        minus.addTarget(self, action: "minusTouchDown:", forControlEvents: .TouchDown)
+        minus.addTarget(self, action: "minusTouchUp:", forControlEvents: .TouchUpInside)
+        plus.addTarget(self, action: "plusTouchDown:", forControlEvents: .TouchDown)
+        plus.addTarget(self, action: "plusTouchUp:", forControlEvents: .TouchUpInside)
         
         // Dividers
         let leftDivider = UIView(frame: CGRectMake(minus.frame.size.width, 0, 1.5, 29))
@@ -102,6 +102,12 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
         self.addSubview(rightDivider)
         self.addSubview(plus)
         
+        // Border
+        self.layer.borderWidth = 1
+        self.layer.borderColor = self.tintColor.CGColor
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
+        
         self.value = self.minimumValue
     }
     
@@ -119,28 +125,16 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
         
         self.textField.text = self.numberFormatter.stringFromNumber(NSNumber(double: _value))
     }
-
-    
-    // MARK: Drawing
-    
-    public override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
-        
-        self.tintColor.setStroke()
-        self.tintColor.setFill()
-        
-        // Stroke the outside to give the whole view a rounded rect outline
-        let outline = UIBezierPath(roundedRect: rect, cornerRadius: 5)
-        outline.lineWidth = 1.5
-        outline.stroke()
-    }
     
     
     // MARK: Actions
     
-    internal func minusTouchDown() { self.buttonTouchDown("decrement") }
-    internal func plusTouchDown() { self.buttonTouchDown("increment") }
-    private func buttonTouchDown(selector: Selector) {
+    internal func minusTouchDown(sender: KBHTextFieldStepperButton) { self.buttonTouchDown(sender, selector: "decrement") }
+    internal func plusTouchDown(sender: KBHTextFieldStepperButton) { self.buttonTouchDown(sender, selector: "increment") }
+    
+    private func buttonTouchDown(sender: KBHTextFieldStepperButton, selector: Selector) {
+        sender.backgroundColor = self.tintColor.colorWithAlphaComponent(0.15)
+        self.sendSubviewToBack(sender)
         self.performSelector(selector)
         
         if self.autorepeat {
@@ -148,9 +142,13 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
         }
     }
     
-    internal func minusTouchUp() { self.buttonTouchUp() }
-    internal func plusTouchUp() { self.buttonTouchUp() }
-    private func buttonTouchUp() {
+    internal func minusTouchUp(sender: KBHTextFieldStepperButton) { self.buttonTouchUp(sender) }
+    internal func plusTouchUp(sender: KBHTextFieldStepperButton) { self.buttonTouchUp(sender) }
+    
+    private func buttonTouchUp(sender: KBHTextFieldStepperButton) {
+        sender.backgroundColor = self.backgroundColor
+        self.sendSubviewToBack(sender)
+        
         guard let timer = self.timer else { return }
         timer.invalidate()
         
@@ -219,31 +217,31 @@ public class KBHTextFieldStepper: UIControl, UITextFieldDelegate {
 
 // MARK: - Private Classes
 
-private enum KBHTextFieldStepperButtonType {
+internal enum KBHTextFieldStepperButtonType {
     case Plus, Minus
 }
 
-private class KBHTextFieldStepperButton: UIControl {
+internal class KBHTextFieldStepperButton: UIControl {
     
     private var type: KBHTextFieldStepperButtonType
     
     
     // MARK: Initializers
     
-    private required init(origin: CGPoint = CGPointMake(0, 0), type: KBHTextFieldStepperButtonType) {
+    internal required init(origin: CGPoint = CGPointMake(0, 0), type: KBHTextFieldStepperButtonType) {
         self.type = type
         super.init(frame: CGRectMake(origin.x, origin.y, 47, 29))
         self.backgroundColor = .clearColor()
     }
     
-    private required init?(coder aDecoder: NSCoder) {
+    internal required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
     // MARK: Drawing
     
-    private override func drawRect(rect: CGRect) {
+    internal override func drawRect(rect: CGRect) {
         self.tintColor.setFill()
         
         if self.type == .Minus {
@@ -268,11 +266,11 @@ private class KBHTextFieldStepperButton: UIControl {
     
     // MARK: Actions
     
-    private override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    internal override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.sendActionsForControlEvents(.TouchDown)
     }
     
-    private override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    internal override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.sendActionsForControlEvents(.TouchUpInside)
     }
     
